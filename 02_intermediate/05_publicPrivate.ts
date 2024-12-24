@@ -9,7 +9,7 @@
 // }
 
 class User {
-    private _courseCount = 1;
+    protected _courseCount = 1;
     constructor(public email: string, private name: string) {
         this.email = email;
         this.name = name;
@@ -32,5 +32,12 @@ class User {
             throw new Error("Course count should be more than 1");
         }
         this._courseCount = courseNum;
+    }
+}
+
+class SubUser extends User {
+    isFamily: boolean = true;
+    changeCourseCount() {
+        this._courseCount = 4;
     }
 }
