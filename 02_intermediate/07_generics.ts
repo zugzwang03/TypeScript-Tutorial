@@ -37,3 +37,33 @@ const getMoreSearchProducts = <T,>(products: T[]): T => {
     const myIdx = 4;
     return products[myIdx];
 }
+
+function anotherFunction<T, U extends DataBase>(valOne: T, valTwo: U): object {
+    return { valOne, valTwo };
+}
+
+// anotherFunction(3, { connection: "", username: "", password: "" });
+
+interface DataBase {
+    connection: string,
+    username: string,
+    password: string
+}
+
+interface Quiz {
+    name: string,
+    type: string
+}
+
+interface Course {
+    name: string,
+    author: string,
+    subject: string
+}
+
+class Sellable<T> {
+    public cart: T[] = [];
+    addToCart(product: T) {
+        this.cart.push(product);
+    }
+}
